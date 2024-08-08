@@ -51,6 +51,9 @@ pipeline {
             sh '''
             curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.4/install.sh | bash
 nvm install node
+sudo chown -R $(whoami) ~/.npm
+sudo chown -R $(whoami) /usr/local/lib/node_modules
+
 
              npm install -g heroku
               heroku container:login
@@ -74,6 +77,8 @@ nvm install node
             sh '''
               curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.4/install.sh | bash
 nvm install node
+sudo chown -R $(whoami) ~/.npm
+sudo chown -R $(whoami) /usr/local/lib/node_modules
 
              npm install -g heroku
               heroku container:login
