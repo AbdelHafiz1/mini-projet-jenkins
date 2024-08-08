@@ -66,17 +66,7 @@ pipeline{
             }
         }
 
-        stage('Clean container'){
-            agent any
-            steps{
-                script {
-                    sh '''
-                    docker stop $IMAGE_NAME
-                    docker rm $IMAGE_NAME
-                    '''
-                }
-            }
-        }
+       
         stage('push imahe in staging and deploy'){
             when{
                 expression { GIT_BRANCH == 'origin/master'}
