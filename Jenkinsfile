@@ -49,7 +49,10 @@ pipeline {
       steps {
           script {
             sh '''
-              npm i -g heroku
+            curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.4/install.sh | bash
+nvm install node
+
+             npm install -g heroku
               heroku container:login
               heroku create $STAGING || echo "project already exist"
               heroku container:push -a $STAGING web
@@ -69,7 +72,10 @@ pipeline {
       steps {
           script {
             sh '''
-              npm i -g heroku
+              curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.4/install.sh | bash
+nvm install node
+
+             npm install -g heroku
               heroku container:login
               heroku create $PRODUCTION || echo "project already exist"
               heroku container:push -a $PRODUCTION web
