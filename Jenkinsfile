@@ -91,6 +91,7 @@ pipeline{
                     npm i -g heroku@7.68.0
                     heroku container:login
                     heroku create $STAGING || echo "project already exist"
+                    heroku stack:set container --app $STAGING
                     heroku container:push -a $STAGING web
                     heroku container:release -a $STAGING web
                     
