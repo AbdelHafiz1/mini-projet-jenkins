@@ -31,7 +31,7 @@ pipeline {
            steps {
               script {
                 sh '''
-                    curl http://localhost 
+                    curl http://10.0.3.4
                 '''
               }
            }
